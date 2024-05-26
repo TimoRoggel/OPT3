@@ -12,8 +12,7 @@ import java.util.TreeSet;
 public class Manager implements ProductManager{
     private final ArrayList<Product> products; // Lijst van producten
     private final TreeSet<Integer> availableIDs = new TreeSet<>(); // Beschikbare ID's voor hergebruik
-    private final String filePath = "/Users/timobrouwer/Documents/HHS/Github/PortFolio/PortFolio2/Freezer" +
-            "/src/main/java/org/freezer/producten.txt"; // Pad naar het productenbestand
+    private final String filePath = "producten.txt"; // Pad naar het productenbestand
     private final StickerPrinter printer; // Stickerprinter-object
 
     public Manager() {

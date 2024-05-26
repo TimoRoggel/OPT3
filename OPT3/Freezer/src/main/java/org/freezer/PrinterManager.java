@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PrinterManager {
     // Het pad naar het bestand dat de productinformatie bevat
-    private static final String PRODUCT_FILE_PATH = "/Users/timobrouwer/Documents/HHS/Github/PortFolio/PortFolio2/Freezer/src/main/java/org/freezer/producten.txt";
+    private static final String PRODUCT_FILE_PATH = "producten.txt";
 
     // Methode om de productenlijst af te drukken
     public void printProductList() {

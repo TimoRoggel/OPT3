@@ -2,7 +2,7 @@ package org.freezer;
 
 import java.util.Scanner;
 
-public class UserAppMenu {
+public class UserAppMenu extends AppMenu{
     private final Scanner scanner = new Scanner(System.in);
     private final Manager manager = new Manager();
     private final PrinterManager printerManager = new PrinterManager();
@@ -12,16 +12,16 @@ public class UserAppMenu {
             displayUserMenu();
             int choice = getUserChoice();
             switch (choice) {
-                case 3:
+                case 1:
                     manager.displayProductList();
                     break;
-                case 4:
+                case 2:
                     System.out.println("Sluiten...");
                     return;
-                case 5:
+                case 3:
                     printProductList();
                     break;
-                case 6:
+                case 4:
                     sendProductListByEmail();
                     break;
                 default:
@@ -32,11 +32,11 @@ public class UserAppMenu {
 
     private void displayUserMenu() {
         System.out.println("\nUser Menu:");
-        System.out.println("3. Product Lijst");
-        System.out.println("4. Sluiten");
+        System.out.println("1. Product Lijst");
+        System.out.println("2. Sluiten");
         System.out.println("-----------------------");
-        System.out.println("5. Product Lijst Printen");
-        System.out.println("6. Stuur lijst via email");
+        System.out.println("3. Product Lijst Printen");
+        System.out.println("4. Stuur lijst via email");
         System.out.print("Kies een optie: ");
     }
 

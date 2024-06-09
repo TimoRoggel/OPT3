@@ -11,7 +11,6 @@ public class User {
         System.out.println("2. Gebruiker");
         System.out.println();
 
-
         int choice = scanner.nextInt();
         scanner.nextLine();
         switch (choice) {
@@ -27,10 +26,14 @@ public class User {
                 break;
             default:
                 System.out.println("Verkeerde keuze.");
-
+                return;
         }
 
-        AppMenu appMenu = userFactory.createAppMenu();
-        appMenu.run();
+        if (userFactory != null) {
+            AppMenu appMenu = userFactory.createAppMenu();
+            appMenu.start();
+        } else {
+            System.out.println("Geen geldige gebruiker. Probeer opnieuw.");
+        }
     }
 }

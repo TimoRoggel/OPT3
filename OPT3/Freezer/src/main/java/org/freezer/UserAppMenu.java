@@ -2,35 +2,18 @@ package org.freezer;
 
 import java.util.Scanner;
 
-public class UserAppMenu extends AppMenu{
+public class UserAppMenu extends AppMenu {
     private final Scanner scanner = new Scanner(System.in);
     private final Manager manager = new Manager();
     private final PrinterManager printerManager = new PrinterManager();
 
-    public void run() {
-        while (true) {
-            displayUserMenu();
-            int choice = getUserChoice();
-            switch (choice) {
-                case 1:
-                    manager.displayProductList();
-                    break;
-                case 2:
-                    System.out.println("Sluiten...");
-                    return;
-                case 3:
-                    printProductList();
-                    break;
-                case 4:
-                    sendProductListByEmail();
-                    break;
-                default:
-                    System.out.println("Geen toegangsrechten voor deze optie.");
-            }
-        }
+    @Override
+    protected void displayWelcomeMessage() {
+        System.out.println("Welkom bij het Gebruikersmenu!");
     }
 
-    private void displayUserMenu() {
+    @Override
+    protected void displayMenu() {
         System.out.println("\nUser Menu:");
         System.out.println("1. Product Lijst");
         System.out.println("2. Sluiten");
@@ -40,8 +23,30 @@ public class UserAppMenu extends AppMenu{
         System.out.print("Kies een optie: ");
     }
 
-    private int getUserChoice() {
+    @Override
+    protected int getUserChoice() {
         return scanner.nextInt();
+    }
+
+    @Override
+    protected boolean handleUserChoice(int choice) {
+        switch (choice) {
+            case 1:
+                manager.displayProductList();
+                break;
+            case 2:
+                System.out.println("Sluiten...");
+                return false;
+            case 3:
+                printProductList();
+                break;
+            case 4:
+                sendProductListByEmail();
+                break;
+            default:
+                System.out.println("Geen toegangsrechten voor deze optie.");
+        }
+        return true;
     }
 
     private void printProductList() {
@@ -51,6 +56,7 @@ public class UserAppMenu extends AppMenu{
 
     private void sendProductListByEmail() {
         System.out.println("Uw email:");
+        scanner.nextLine();
         String emailAddress = scanner.nextLine();
         manager.sendProductListByEmail(emailAddress);
     }

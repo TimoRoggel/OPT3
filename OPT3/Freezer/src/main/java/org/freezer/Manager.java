@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class Manager implements ProductManager{
     private final ArrayList<Product> products; // Lijst van producten
     private final TreeSet<Integer> availableIDs = new TreeSet<>(); // Beschikbare ID's voor hergebruik
-    private final String filePath = "producten.txt"; // Pad naar het productenbestand
+    private final String filePath = "/Users/timobrouwer/Documents/HHS/Github/OPT3/OPT3/Freezer/src/main/java/org/freezer/producten.txt"; // Pad naar het productenbestand
     private final StickerPrinter printer; // Stickerprinter-object
 
     public Manager() {
@@ -31,10 +31,8 @@ public class Manager implements ProductManager{
         System.out.println("Naam product:");
         String productName = scanner.nextLine();
 
-        // Datum invoeren en controleren
         String expirationDateStr = null;
-        // Controleert of de vervaldatum van het product geldig is door de gebruikersinvoer te parsen.
-        // Parse veranderd de datatype in dit geval naar een Localdate object
+
         LocalDate expirationDate = null;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         while(expirationDate == null){

@@ -27,7 +27,9 @@ public class AdminAppMenu extends AppMenu {
 
     @Override
     protected int getUserChoice() {
-        return scanner.nextInt();
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        return choice;
     }
 
     @Override
